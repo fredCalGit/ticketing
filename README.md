@@ -8,5 +8,7 @@ from project root directory:
 
 $ kubectl create secret generic jwt-secret --from-literal=JWT_KEY=fdso4rrhotgh324523##__
 
-to start project, from project root directory:
+to start application, from project root directory:
 $ skaffold dev
+
+
