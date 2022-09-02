@@ -1,5 +1,5 @@
 # ticketing
-Ticket selling platform, backend on cloud microservices architecture with Node.js / Typescript, client on Next.JS
+Ticket selling platform, backend on cloud microservices architecture with Node.js / Typescript, frontend SSR with Next.JS
 
 Cloud Platform: Google Cloud Plarform
 
