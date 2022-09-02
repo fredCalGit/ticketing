@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import { requireAuth, validateRequest } from "@fctickets/common";
 import { Ticket } from "../models/ticket";
+import { TicketCreatedPublisher } from "../events/publishers/ticketCreatedPublisher";
+import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();
 
@@ -23,7 +25,16 @@ router.post(
       price,
       userId: req.currentUser!.id,
     });
+
     await ticket.save();
+
+    await new TicketCreatedPublisher(natsWrapper.client).publish({
+      // do not take info from request body, instead take from object saved to database
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    });
 
     res.status(201).send(ticket);
   }
