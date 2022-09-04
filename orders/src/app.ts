@@ -4,7 +4,7 @@ import { json } from "body-parser";
 import cookieSession from "cookie-session";
 import { errorHandler, NotFoundError, currentUser } from "@fctickets/common";
 
-import { deleteOrderRouter } from "./routes/delete";
+import { cancelOrderRouter } from "./routes/cancel";
 import { newOrderRouter } from "./routes/new";
 import { showOrderRouter } from "./routes/show";
 import { indexOrderRouter } from "./routes";
@@ -23,7 +23,7 @@ app.use(currentUser);
 app.use(newOrderRouter);
 app.use(showOrderRouter);
 app.use(indexOrderRouter);
-app.use(deleteOrderRouter);
+app.use(cancelOrderRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
