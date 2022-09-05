@@ -5,9 +5,10 @@ import {
   NotFoundError,
   requireAuth,
   NotAuthorizedError,
+  BadRequestError,
 } from "@fctickets/common";
 import { Ticket } from "../models/ticket";
-import { TicketUpdatedPublisher } from "../events/publishers/ticketUpdatesPublisher";
+import { TicketUpdatedPublisher } from "../events/publishers/ticketUpdatedPublisher";
 import { natsWrapper } from "../natsWrapper";
 
 const router = express.Router();
@@ -27,6 +28,9 @@ router.put(
 
     if (!ticket) {
       throw new NotFoundError();
+    }
+    if (ticket.orderId) {
+      throw new BadRequestError("Cannot edit reserved tickets");
     }
     if (ticket.userId !== req.currentUser!.id) {
       throw new NotAuthorizedError();
