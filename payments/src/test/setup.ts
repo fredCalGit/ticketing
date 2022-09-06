@@ -13,11 +13,14 @@ declare global {
 }
 */
 declare global {
-  var signin: () => string[];
+  var signin: (id?: string) => string[];
 }
 
 jest.mock("../natsWrapper");
 
+// Testing mock key
+process.env.STRIPE_KEY =
+  "sk_test_51Lf5lXKVh1j40eRNsBybYWCSK6JT6JRtVPFtBIj9mx0WAuT6bLnn6LjaLTq0lTF8jV5ypiL6tIchWaORmK58b9XX00iRtCpgSS";
 let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = "dfsdohfjsdofh";
@@ -37,16 +40,16 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
+  await mongoose.connection.close();
   if (mongo) {
     await mongo.stop();
   }
-  await mongoose.connection.close();
 });
 
-global.signin = () => {
+global.signin = (id?: string) => {
   // build a JWT payload: {id, email}
   const payload = {
-    id: new mongoose.Types.ObjectId().toHexString(),
+    id: id || new mongoose.Types.ObjectId().toHexString(),
     email: "test@test.com",
   };
   // create the JWT
