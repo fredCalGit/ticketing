@@ -14,14 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: us.gcr.io/ticketing-dev-360820/ticketing-client
-          # resources:
-          #   limits:
-          #     memory: 512Mi
-          #     cpu: "1"
-          #   requests:
-          #     memory: 256Mi
-          #     cpu: "0.2"
+          image: us.gcr.io/ticketing-dev-360820/client
 ---
 apiVersion: v1
 kind: Service

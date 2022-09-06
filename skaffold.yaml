@@ -18,7 +18,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/ticketing-dev-360820/ticketing-client
+    - image: us.gcr.io/ticketing-dev-360820/client
       context: client
       docker:
         dockerfile: Dockerfile
