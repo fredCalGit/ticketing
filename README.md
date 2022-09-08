@@ -7,6 +7,7 @@
 - MongoDB
 - Google cloud: Kubernetes engine
 - Docker
+- Kernel (common dir) on npm  registry: @fc
 - Dev environment automated with skaffold
 
 Required: Node v16 LTS
