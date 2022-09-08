@@ -12,7 +12,7 @@
 
 Required: Node v16 LTS
 
-- Client to be done!
+- Client in early development
 
 to start application, from project root directory:
 $ skaffold dev
