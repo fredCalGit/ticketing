@@ -1,10 +1,16 @@
 # ticketing
 
-Ticket selling platform, backend on cloud microservices architecture with Node.js / Typescript, client on Next.JS
+- Ticket selling platform 
+- Cloud microservices architecture 
+- Node.js / Typescript 
+- Client on Next.JS
+- Google cloud: Kubernetes engine
+- Docker
+- Dev environment automated with skaffold
 
 Required: Node v16 LTS
 
-Cloud Platform: Google Cloud Plarform
+- Client to be done!
 
 to start application, from project root directory:
 $ skaffold dev
