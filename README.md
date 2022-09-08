@@ -4,6 +4,7 @@
 - Cloud microservices architecture 
 - Node.js / Typescript 
 - Client on Next.JS
+- MongoDB
 - Google cloud: Kubernetes engine
 - Docker
 - Dev environment automated with skaffold
